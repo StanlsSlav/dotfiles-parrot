@@ -1,0 +1,4 @@
+---
+- name: Setting the dconf default profile
+  shell:
+    cmd: dconf load /org/mate/terminal/profiles/default/ < {{ playbook_dir }}/configs/dconf-default-profile

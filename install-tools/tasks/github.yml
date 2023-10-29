@@ -1,0 +1,30 @@
+---
+# CyberChef https://github.com/gchq/CyberChef/releases
+# ghidra https://github.com/NationalSecurityAgency/ghidra/releases
+# hashcat https://github.com/hashcat/hashcat/releases
+# Logic https://logic2api.saleae.com/download?os=linux&arch=x64
+# lse https://github.com/diego-treitos/linux-smart-enumeration/releases
+# nikto https://github.com/sullo/nikto
+# nodejs https://nodejs.org/en/download
+# pwntools https://github.com/Gallopsled/pwntools#installation
+# pwndbg https://github.com/pwndbg/pwndbg/releases
+# radare2 https://github.com/radareorg/radare2/releases
+# Remix IDE apt
+# RsaCtfTool https://github.com/RsaCtfTool/RsaCtfTool
+# SonicVisualiser https://sonicvisualiser.org/download.html
+# linpeas.sh https://github.com/carlospolop/PEASS-ng/releases
+# winpeas.ps1 https://github.com/carlospolop/PEASS-ng/releases
+# feroxbuster https://github.com/epi052/feroxbuster/releases
+# ffuf https://github.com/ffuf/ffuf/releases
+# pwncat https://github.com/calebstewart/pwncat
+# stegseek https://github.com/RickdeJager/stegseek/releases
+# reverse shell generator https://github.com/0dayCTF/reverse-shell-generator
+# dex2jar https://github.com/pxb1988/dex2jar/releases
+# sshuttle https://github.com/sshuttle/sshuttle/releases
+# chisel https://github.com/jpillora/chisel/releases
+# mimikatz https://github.com/gentilkiwi/mimikatz/releases
+# sherlock https://github.com/sherlock-project/sherlock#installation
+# sqlmap https://github.com/sqlmapproject/sqlmap#installation
+# tcpreplay https://github.com/appneta/tcpreplay/releases
+# wpscan https://github.com/wpscanteam/wpscan/releases
+# zap https://github.com/zaproxy/zaproxy/releases

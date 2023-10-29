@@ -1,0 +1,37 @@
+---
+- name: Installing ZSH
+  apt:
+    name: tmux
+    state: latest
+
+
+- name: Checking existence of OhMyZsh
+  stat:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
+  register: omz_dir
+
+
+- name: Installing OhMyZsh
+  shell:
+    cmd: |
+      sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  when: omz_dir.stat.exists is false
+
+
+- name: Cloning Powerlevel10k theme
+  git:
+    repo: https://github.com/romkatv/powerlevel10k
+    depth: 1
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
+
+
+- name: Copying ZSHRC config
+  copy:
+    src: "{{ playbook_dir }}/configs/.zshrc"
+    dest: "{{ ansible_env.HOME }}"
+    backup: yes
+
+
+- name: While at it, why not set the dconf default profile
+  shell:
+    cmd: dconf load /org/mate/terminal/profiles/default/ < {{ playbook_dir }}/configs/dconf-default-profile

@@ -1,0 +1,56 @@
+---
+- name: Reading current NeoVim version
+  shell:
+    cmd: nvim --version | head -1 | cut -d' ' -f2
+  register: nvim_version
+
+
+- name: Reading latest NeoVim version from GitHub
+  uri:
+    url: https://api.github.com/repos/neovim/neovim/releases
+  register: gh_res
+  failed_when: gh_res is failed
+
+
+- name: Info
+  debug:
+    msg: "Already at latest version, no need to install or update"
+  when: |
+    nvim_version.stdout in gh_res.json[1].assets[8].browser_download_url
+    and "not found" not in nvim_version.stderr
+
+
+# Hope the response structure will not chance any time soon
+# Install NeoVim only when an update is needed or NeoVim is not installed
+- when: |
+    nvim_version.stdout not in gh_res.json[1].assets[8].browser_download_url
+    or "not found" in nvim_version.stderr
+  block:
+    - name: |
+        Downloading latest stable NeoVim into /usr/bin/nvim
+        Install latest AppImage even if NeoVim exists
+      get_url:
+        url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+        dest: "{{ ansible_env.HOME }}/Downloads/nvim"
+        checksum: sha256:https://github.com/neovim/neovim/releases/download/stable/nvim.appimage.sha256sum
+
+    # Avoid upgrading pyopenssl as root by doing all this with "get_url" mod
+    - name: Copying NVIM to /usr/bin/nvim with adequate permissions
+      copy:
+        src: "{{ ansible_env.HOME }}/Downloads/nvim"
+        dest: "/usr/bin"
+        owner: root
+        group: root
+        mode: 0755
+      become: true
+      become_method: sudo
+
+    - name: Removing NVIM from Downloads folder
+      file:
+        path: "{{ ansible_env.HOME }}/Downloads/nvim"
+        state: absent
+
+- name: Copying NeoVim configs
+  copy:
+    src: "{{ playbook_dir }}/configs/init.vim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"

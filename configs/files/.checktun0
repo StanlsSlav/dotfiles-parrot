@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/ip -br -4 a s tun0 | /usr/bin/cut -d' ' -f22 | /usr/bin/cut -d'/' -f1

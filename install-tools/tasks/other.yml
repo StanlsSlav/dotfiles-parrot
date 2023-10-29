@@ -1,0 +1,5 @@
+---
+# idafree https://out7.hex-rays.com/files/idafree83_linux.run
+# jd-gui https://java-decompiler.github.io/
+# stegsolve wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
+# burpsuite https://portswigger.net/burp/releases/community/latest

@@ -1,0 +1,29 @@
+---
+- name: Installing TMUX
+  apt:
+    name: tmux
+    state: latest
+
+
+- name: Copying TMUX config
+  copy:
+    src: "{{ playbook_dir }}/configs/.tmux.conf"
+    dest: "{{ ansible_env.HOME }}"
+    backup: yes
+
+
+- name: Copying required files
+  copy:
+      src: "{{ playbook_dir }}/configs/files/.checktun0"
+      dest: "{{ ansible_env.HOME }}"
+
+
+- name: Cloning Tmux Plugin Manager repo
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+
+
+- name: Info
+  debug:
+    msg: "Install the plugins via Leader+I"
