@@ -1,8 +1,10 @@
 ---
 - name: Installing ZSH
   apt:
-    name: tmux
+    name: zsh
     state: latest
+  become: true
+  become_method: sudo
 
 
 - name: Checking existence of OhMyZsh
