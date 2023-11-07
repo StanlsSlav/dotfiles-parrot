@@ -1,10 +1,27 @@
 ---
-# taildeer
-# fd
-# bat
-# exa
-# zoxide
+- name: Downloading rust install script
+  get_url:
+    url: "https://sh.rustup.rs"
+    dest: "/tmp/rustup.sh"
+    ciphers: "TLSv1.2"
+    mode: 0555
 
-# ripgrep
-# curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
-# sudo dpkg -i ripgrep_13.0.0_amd64.deb
+- name: Installing rust
+  command:
+     cmd: "/tmp/rustup.sh -y"
+
+- name: |
+    Updating rust
+    Just in case it was preinstalled a long time ago
+  command:
+    cmd: "rustup update"
+
+- name: Info
+  debug:
+    msg: |
+      Next step is installing the Rust tools
+      However it can take a lot of time. Up to 30m is a posibility!
+
+- name: Installing Rust tools
+  command:
+    cmd: "cargo install --locked tealdeer fd-find bat exa zoxide ripgrep"
