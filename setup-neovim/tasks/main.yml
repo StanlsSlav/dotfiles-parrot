@@ -1,7 +1,7 @@
 ---
 - name: Reading current NeoVim version
   shell:
-    cmd: nvim --version | head -1 | cut -d' ' -f2
+    cmd: "nvim --version | head -1 | cut -d' ' -f2"
   register: nvim_version
 
 
@@ -52,5 +52,5 @@
 
 - name: Copying NeoVim configs
   copy:
-    src: "{{ playbook_dir }}/configs/init.vim"
-    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    src: "{{ playbook_dir }}/configs/nvim"
+    dest: "{{ ansible_env.HOME }}/.config"
