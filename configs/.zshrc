@@ -105,9 +105,6 @@ plugins=(
 
   # Utils
   colored-man-pages command-not-found man
-
-  # Still works?
-  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
