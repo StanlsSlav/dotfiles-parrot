@@ -4,8 +4,8 @@
   connection: local
 
   roles:
-    # - role: "setup-terminal"
-    # - role: "setup-tmux"
-    # - role: "setup-zsh"
-    # - role: "setup-neovim"
-    # - role: "install-tools"
+    - role: "install-tools"
+    - role: "setup-terminal"
+    - role: "setup-tmux"
+    - role: "setup-zsh"
+    - role: "setup-neovim"
