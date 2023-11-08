@@ -3,7 +3,7 @@ require('which-key').register {
         f = {
             name = '+file',
             f = '[f]ind',
-            r = '[re]cent',
+            r = '[r]ecent',
             g = '[g]rep',
             b = '[b]uffers',
             n = { '<cmd>enew<cr>', '[n]ew' },
