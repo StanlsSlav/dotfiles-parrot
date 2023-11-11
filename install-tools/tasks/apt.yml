@@ -17,7 +17,6 @@
         - git
         - openvpn
         - binwalk
-        - espanso
         - fcrackzip
         - nmap
         - wireshark
@@ -28,3 +27,5 @@
     apt:
       autoremove: yes
 
+  become: true
+  become_method: sudo
