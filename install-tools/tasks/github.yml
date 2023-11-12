@@ -1,5 +1,17 @@
 ---
-# CyberChef https://github.com/gchq/CyberChef/releases
+- block:
+  - name: Downloading CyberChef webpage
+    get_url:
+      url: https://github.com/gchq/CyberChef/releases/download/v10.5.2/CyberChef_v10.5.2.zip
+      dest: /opt
+
+  - name: Unzipping to "/opt/CyberChef"
+    command:
+      cmd: "unzip -u /opt/CyberChef_v10.5.2.zip -d /opt/CyberChef"
+
+  become: true
+  become_method: sudo
+
 # ghidra https://github.com/NationalSecurityAgency/ghidra/releases
 # hashcat https://github.com/hashcat/hashcat/releases
 # Logic https://logic2api.saleae.com/download?os=linux&arch=x64
