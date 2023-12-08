@@ -32,8 +32,13 @@ vim.opt.isfname:append('@-@')
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.nvim/undodir'
 vim.opt.undofile = true
+
+local home_env = os.getenv('Home')
+if not home_env then
+    home_env = os.getenv('UserProfile')
+end
+vim.opt.undodir = home_env .. '/.nvim/undodir'
 
 vim.opt.colorcolumn = '124'
 
