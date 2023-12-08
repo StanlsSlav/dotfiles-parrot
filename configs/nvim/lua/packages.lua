@@ -13,11 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     -- Visuals
-    { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+    { 'catppuccin/nvim', name = 'catppuccin' },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {
-            { 'nvim-tree/nvim-web-devicons', opt = true}
+            { 'nvim-tree/nvim-web-devicons', opt = true }
         }
     },
 
@@ -30,9 +30,6 @@ require('lazy').setup({
     -- Prettier undo history and permanent
     { 'mbbill/undotree' },
 
-    -- Awesome toasts
-    { 'rcarriga/nvim-notify' },
-
     -- Highlight, edit, and navigate code
     { 'nvim-treesitter/nvim-treesitter' },
 
@@ -41,7 +38,7 @@ require('lazy').setup({
     { 'lewis6991/gitsigns.nvim' },
 
     -- :)
-    { 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
+    { 'codota/tabnine-nvim', build = './dl_binaries.sh' },
 
     -- LSP related
     {
@@ -51,6 +48,9 @@ require('lazy').setup({
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
             { 'neovim/nvim-lspconfig' },
+
+            -- Snippet Engine
+            { 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
@@ -68,12 +68,13 @@ require('lazy').setup({
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
 
-    { 'numToStr/Comment.nvim', lazy = false },
+    -- Commenting
+    { 'numToStr/Comment.nvim' },
+
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Make NeoVim experience easier
     { 'folke/which-key.nvim', event = 'VeryLazy' },
-    { 'folke/neodev.nvim' },
-
-    { 'folke/zen-mode.nvim' }
+    { 'folke/zen-mode.nvim' },
+    { 'folke/neodev.nvim' }
 })
