@@ -69,6 +69,7 @@ require('lazy').setup({
     },
 
     { 'numToStr/Comment.nvim', lazy = false },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Make NeoVim experience easier
     { 'folke/which-key.nvim', event = 'VeryLazy' },
