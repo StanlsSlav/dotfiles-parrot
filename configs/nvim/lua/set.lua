@@ -23,8 +23,8 @@ vim.opt.updatetime = 1000
 vim.opt.path:append('**')
 vim.opt.termguicolors = true
 
--- Show trailing whitespaces
-vim.opt.list = true
+-- Show visual characters for invisible characters
+vim.opt.listchars = 'tab:𐰆 ,nbsp:❍,space:⋆,trail:༝'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
