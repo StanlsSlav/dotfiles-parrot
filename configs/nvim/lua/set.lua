@@ -34,7 +34,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
-local home_env = os.getenv('Home')
+local home_env = os.getenv('HOME')
 if not home_env then
     home_env = os.getenv('UserProfile')
 end
