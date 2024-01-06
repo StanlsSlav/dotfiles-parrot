@@ -43,7 +43,7 @@ zstyle ':omz:update' mode auto        # update automatically without asking
 
 
 # Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 3
+zstyle ':omz:update' frequency 2
 
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -169,15 +169,12 @@ fi
 # ==============
 alias update='sudo apt update -y; sudo apt upgrade -y; sudo apt autoremove; sudo apt autoclean; sudo updatedb; rustup update'
 
-
 # Miscellaneous
 alias calc='mate-calculator -s ' \
       listen='pwncat -k -l' \
       exa='exa -hG --icons' \
-      ls='exa --color=always' \
       cat='bat' \
       extract_vsc='sudo rm -rf /usr/share/codium && sudo mkdir /usr/share/codium && sudo tar zxf ~/Downloads/VSCodium-* --directory=/usr/share/codium'
-
 
 # Command line head / tail shortcuts
 alias -g H='| head' \
@@ -190,20 +187,17 @@ alias -g H='| head' \
       NE="2> /dev/null" \
       NUL="> /dev/null 2>&1"
 
-
-# OpenVPN configs
+# OVPN configs
 alias htb='sudo openvpn /root/HackTheBox/lab.ovpn' \
       comp='sudo openvpn /root/HackTheBox/competitive.ovpn' \
-      thm='sudo openvpn /root/TryHackMe/elburrito.ovpn' \
+      thm='sudo openvpn /root/TryHackMe/main.ovpn' \
       sp='sudo openvpn /root/HackTheBox/startingPoint.ovpn' \
       ra='sudo openvpn /root/HackTheBox/RA.ovpn' \
       academy='sudo openvpn /root/HackTheBox/academy.ovpn'
 
-
 # Listing
 alias ls='exa --color=always' \
       la='l -aG'
-
 
 # Exec
 alias ghidra='/opt/ghidra/ghidraRun' \
@@ -217,8 +211,9 @@ alias ghidra='/opt/ghidra/ghidraRun' \
       sonicvisualizer='/opt/SonicVisualiser-*.AppImage' \
       neo4j='docker run -d -p7474:7474 -p7687:7687 -e NEO4J_AUTH=neo4j/s3cr3t neo4j' \
       revshell='docker run --rm -d -p 1337:80 reverse_shell_generator' \
-      nikto='/opt/nikto/program/nikto.pl'
-
+      nikto='/opt/nikto/program/nikto.pl' \
+      rsactftool='python3 /opt/RsaCtfTool/RsaCtfTool.py' \
+      sqlmap='python3 /opt/sqlmap/sqlmap.py'
 
 function hex-encode()
 {
