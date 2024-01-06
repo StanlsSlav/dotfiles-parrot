@@ -1,42 +1,58 @@
 ---
 - block:
-  - name: Downloading CyberChef webpage
-    get_url:
-      url: https://github.com/gchq/CyberChef/releases/download/v10.5.2/CyberChef_v10.5.2.zip
-      dest: /opt
+  - name: Cloning Git tools
+    command: >-
+      ruby {{ playbook_dir }}/install_git_tools.rb
+      -r '{{ item.repo }}'
+      -e '^{{ item.expr }}$'
+      -d '{{ item.dir }}'
+      -m '{{ item.mode }}'
+    loop:
+      - { repo: 'NationalSecurityAgency/ghidra', expr: 'ghidra_.*_PUBLIC_.*\.zip', dir: '', mode: '' }
+      - { repo: 'hashcat/hashcat', expr: 'hashcat-.*.7z', dir: '', mode: '' }
+      - { repo: 'diego-treitos/linux-smart-enumeration', expr: 'lse.sh', dir: '', mode: '' }
+      - { repo: 'pwndbg/pwndbg', expr: 'pwndbg_.*_amd64.deb', dir: '', mode: '0755' }
+      - { repo: 'carlospolop/PEASS-ng', expr: 'linpeas.sh', dir: '', mode: '' }
+      - { repo: 'carlospolop/PEASS-ng', expr: 'winPEAS.bat', dir: '', mode: '' }
+      - { repo: 'ffuf/ffuf', expr: 'ffuf_.*_linux_amd64.tar.gz', dir: '', mode: '' }
+      - { repo: 'RickdeJager/stegseek', expr: 'stegseek_.*.deb', dir: '', mode: '0755' }
+      - { repo: 'pxb1988/dex2jar', expr: 'dex-tools-v.*.zip', dir: '', mode: '' }
+      - { repo: 'jpillora/chisel', expr: 'chisel_.*_linux_amd64.gz', dir: '', mode: '' }
+      - { repo: 'gentilkiwi/mimikatz', expr: 'mimikatz_trunk.7z', dir: '', mode: '' }
+      - { repo: 'appneta/tcpreplay', expr: 'tcpreplay-.*.tar.gz', dir: '', mode: '' }
+      - { repo: 'zaproxy/zaproxy', expr: 'ZAP_WEEKLY_D-.*.zip', dir: '', mode: '' }
+      - { repo: 'java-decompiler/jd-gui', expr: 'jd-gui-1.6.6.jar', dir: '', mode: '' }
+      - { repo: 'ethereum/remix-desktop', expr: 'Remix-IDE-.*.AppImage', dir: '', mode: '0755' }
+      - { repo: 'sonic-visualiser/sonic-visualiser', expr: 'SonicVisualiser-.*-x86_64.AppImage', dir: '', mode: '0755' }
+    # Fire and forget
+    async: 0
+    poll: 0
 
-  - name: Unzipping to "/opt/CyberChef"
-    command:
-      cmd: "unzip -u /opt/CyberChef_v10.5.2.zip -d /opt/CyberChef"
+  - name: Cloning repositories
+    git:
+      repo: "https://github.com/{{ item.owner }}/{{ item.name }}"
+      dest: "/opt/{{ item.name }}"
+      depth: 1
+      single_branch: true
+    loop:
+      - { owner: 'sullo', name: 'nikto' }
+      - { owner: 'RsaCtfTool', name: 'RsaCtfTool' }
+      - { owner: 'sqlmapproject', name: 'sqlmap' }
+
+        # radare2/sys/install.sh
+      - { owner: 'radareorg', name: 'radare2' }
+
+        # docker build -t reverse_shell_generator .
+        # docker run -d -p 80:80 reverse_shell_generator
+      - { owner: '0dayCTF', name: 'reverse-shell-generator' }
+
+        # sudo ./setup.py install
+      - { owner: 'sshuttle', name: 'sshuttle' }
+
+        # pip3 install -r requirements.txt
+      - { owner: 'sherlock-project', name: 'sherlock' }
+    async: 0
+    poll: 0
 
   become: true
   become_method: sudo
-
-# ghidra https://github.com/NationalSecurityAgency/ghidra/releases
-# hashcat https://github.com/hashcat/hashcat/releases
-# Logic https://logic2api.saleae.com/download?os=linux&arch=x64
-# lse https://github.com/diego-treitos/linux-smart-enumeration/releases
-# nikto https://github.com/sullo/nikto
-# nodejs https://nodejs.org/en/download
-# pwntools https://github.com/Gallopsled/pwntools#installation
-# pwndbg https://github.com/pwndbg/pwndbg/releases
-# radare2 https://github.com/radareorg/radare2/releases
-# Remix IDE apt
-# RsaCtfTool https://github.com/RsaCtfTool/RsaCtfTool
-# SonicVisualiser https://sonicvisualiser.org/download.html
-# linpeas.sh https://github.com/carlospolop/PEASS-ng/releases
-# winpeas.ps1 https://github.com/carlospolop/PEASS-ng/releases
-# feroxbuster https://github.com/epi052/feroxbuster/releases
-# ffuf https://github.com/ffuf/ffuf/releases
-# pwncat https://github.com/calebstewart/pwncat
-# stegseek https://github.com/RickdeJager/stegseek/releases
-# reverse shell generator https://github.com/0dayCTF/reverse-shell-generator
-# dex2jar https://github.com/pxb1988/dex2jar/releases
-# sshuttle https://github.com/sshuttle/sshuttle/releases
-# chisel https://github.com/jpillora/chisel/releases
-# mimikatz https://github.com/gentilkiwi/mimikatz/releases
-# sherlock https://github.com/sherlock-project/sherlock#installation
-# sqlmap https://github.com/sqlmapproject/sqlmap#installation
-# tcpreplay https://github.com/appneta/tcpreplay/releases
-# wpscan https://github.com/wpscanteam/wpscan/releases
-# zap https://github.com/zaproxy/zaproxy/releases
