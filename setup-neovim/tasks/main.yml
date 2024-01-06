@@ -4,13 +4,11 @@
     cmd: "nvim --version | head -1 | cut -d' ' -f2"
   register: nvim_version
 
-
 - name: Reading latest NeoVim version from GitHub
   uri:
     url: https://api.github.com/repos/neovim/neovim/releases
   register: gh_res
   failed_when: gh_res is failed
-
 
 - name: Info
   debug:
@@ -18,7 +16,6 @@
   when: |
     nvim_version.stdout in gh_res.json[1].assets[8].browser_download_url
     and "not found" not in nvim_version.stderr
-
 
 # Hope the response structure will not chance any time soon
 # Install NeoVim only when an update is needed or NeoVim is not installed
