@@ -7,14 +7,10 @@
     mode: 0555
 
 - name: Installing rust
-  command:
-     cmd: "/tmp/rustup.sh -y"
+  command: "/tmp/rustup.sh -y"
 
-- name: |
-    Updating rust
-    Just in case it was preinstalled a long time ago
-  command:
-    cmd: "rustup update"
+- name: Updating rust
+  command: "rustup update"
 
 - name: Info
   debug:
@@ -23,5 +19,12 @@
       However it can take a lot of time. Up to 30m is a posibility!
 
 - name: Installing Rust tools
-  command:
-    cmd: "cargo install --locked tealdeer fd-find bat exa zoxide ripgrep"
+  command: >-
+      cargo install --locked
+      bat
+      exa
+      zoxide
+      fd-find
+      ripgrep
+      tealdeer
+      feroxbuster
