@@ -1,5 +1,5 @@
 ---
-- include: "apt.yml"
-- include: "cargo.yml"
-- include: "github.yml"
-- include: "other.yml"
+- import_tasks: "apt.yml"
+- import_tasks: "cargo.yml"
+- import_tasks: "github.yml"
+- import_tasks: "other.yml"
