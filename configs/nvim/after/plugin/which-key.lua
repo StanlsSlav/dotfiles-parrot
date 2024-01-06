@@ -2,10 +2,11 @@ require('which-key').register {
     ['<leader>'] = {
         f = {
             name = '+file',
-            f = '[f]ind',
-            r = '[r]ecent',
-            g = '[g]rep',
-            b = '[b]uffers',
+            f = { '<cmd>Telescope find_files<cr>', '[f]ind' },
+            r = { '<cmd>Telescope oldfiles<cr>', '[r]ecent' },
+            g = { '<cmd>Telescope live_grep<cr>', '[g]rep' },
+            b = { '<cmd>Telescope buffers<cr>', '[b]uffers' },
+            h = { '<cmd>Telescope help_tags<cr>', '[h]elp' },
             n = { '<cmd>enew<cr>', '[n]ew' },
         },
         m = {
@@ -19,16 +20,20 @@ require('which-key').register {
             t = { '<cmd>TroubleToggle<cr>', '[t]oggle' },
             r = { '<cmd>TroubleRefresh<cr>', '[r]efresh' },
         },
+        g = { '<cmd>Git<cr>', '[g]it' },
         u = { '<cmd>UndotreeToggle<cr>', '[u]ndotree Toggle' },
         l = { '<cmd>Lazy<cr>', '[l]azy' },
-        e = '[e]xplorer',
-        y = 'Yank to sys clip',
-        Y = 'Yank line to sys clip',
+        e = { '<cmd>Ex<cr>', '[e]xplorer' },
+        n = { '<cmd>TabnineToggle<cr>', '[n]ine toggle' },
 
-        j = 'Previous error',
-        k = 'Next error',
+        J = 'append to current line',
+        y = 'yank to sys clip',
+        Y = 'yank line to sys clip',
 
-        s = "Find and replace carret"
+        j = 'previous error',
+        k = 'next error',
+
+        s = "find and replace carret"
     }
 }
 
