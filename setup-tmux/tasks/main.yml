@@ -4,25 +4,22 @@
     name: tmux
     state: latest
 
-
 - name: Copying TMUX config
   copy:
     src: "{{ playbook_dir }}/configs/.tmux.conf"
     dest: "{{ ansible_env.HOME }}"
     backup: yes
 
-
 - name: Copying required files
   copy:
       src: "{{ playbook_dir }}/configs/files/.checktun0"
       dest: "{{ ansible_env.HOME }}"
 
-
-- name: Cloning Tmux Plugin Manager repo
+- name: Cloning Tmux Plugin Manager
   git:
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
-
+    depth: 1
 
 - name: Info
   debug:
