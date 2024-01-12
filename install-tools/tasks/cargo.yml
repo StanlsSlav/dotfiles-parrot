@@ -10,7 +10,7 @@
   command: "/tmp/rustup.sh -y"
 
 - name: Updating rust
-  command: "rustup update"
+  command: "{{ansible_env.HOME}}/.cargo/bin/rustup update"
 
 - name: Info
   debug:
