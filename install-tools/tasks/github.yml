@@ -48,7 +48,7 @@
   - name: Installing Radare2
     command:
       chdir: /opt/radare2
-      cmd: radare2/sys/install.sh
+      cmd: sys/install.sh
 
   - name: Building RevShell Generator docker image
     command:
