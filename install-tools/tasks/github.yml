@@ -38,17 +38,24 @@
       - { owner: 'sullo', name: 'nikto' }
       - { owner: 'RsaCtfTool', name: 'RsaCtfTool' }
       - { owner: 'sqlmapproject', name: 'sqlmap' }
-      - { owner: 'radareorg', name: 'radare2' }
       - { owner: '0dayCTF', name: 'reverse-shell-generator' }
       - { owner: 'sshuttle', name: 'sshuttle' }
       - { owner: 'sherlock-project', name: 'sherlock' }
     async: 0
     poll: 0
 
-  - name: Installing Radare2
-    command:
-      chdir: /opt/radare2
-      cmd: sys/install.sh
+  # Radare2 is a special exception
+  - block:
+      - name: Cloning Radare2
+        git:
+          repo: "https://github.com/radareorg/radare2"
+          dest: "/opt/radare2"
+          depth: 1
+          single_branch: true
+
+      - name: Installing Radare2
+        command: /opt/radare2/sys/install.sh
+    become: false
 
   - name: Building RevShell Generator docker image
     command:
