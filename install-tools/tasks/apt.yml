@@ -13,6 +13,7 @@
       pkg:
         - jq
         - containerd
+        - docker.io
         - exiftool
         - git
         - openvpn
