@@ -200,15 +200,15 @@ alias ls='exa --color=always' \
       la='l -aG'
 
 # Exec
-alias ghidra='/opt/ghidra/ghidraRun' \
-      ida='/opt/idafree-*/ida64' \
+alias ghidra='/opt/ghidra*/ghidraRun' \
+      ida='/opt/idafree*/ida64' \
       stegsolve='/opt/stegsolve.jar' \
-      cyberchef='firefox /opt/CyberChef/CyberChef_v*.html' \
+      cyberchef='firefox /opt/CyberChef/CyberChef*.html' \
       rustscan='docker run -it --rm rustscan/rustscan' \
       ciphey='docker run -it --rm --name ciphey remnux/ciphey' \
       stegseek='docker run --rm -it -v "$(pwd):/steg" --name stegseek rickdejager/stegseek' \
       afl='docker run -ti -v $(pwd):/src aflplusplus/aflplusplus' \
-      sonicvisualizer='/opt/SonicVisualiser-*.AppImage' \
+      sonicvisualizer='/opt/SonicVisualiser*.AppImage' \
       neo4j='docker run -d -p7474:7474 -p7687:7687 -e NEO4J_AUTH=neo4j/s3cr3t neo4j' \
       revshell='docker run --rm -d -p 1337:80 reverse_shell_generator' \
       nikto='/opt/nikto/program/nikto.pl' \
