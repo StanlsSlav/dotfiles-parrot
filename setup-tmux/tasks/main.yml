@@ -20,6 +20,8 @@
     repo: https://github.com/tmux-plugins/tpm
     dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
     depth: 1
+  async: true
+  poll: 0
 
 - name: Info
   debug:

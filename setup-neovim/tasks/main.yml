@@ -28,24 +28,12 @@
         Install latest AppImage even if NeoVim exists
       get_url:
         url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-        dest: "{{ ansible_env.HOME }}/Downloads/nvim"
+        dest: "/usr/bin/nvim"
         checksum: sha256:https://github.com/neovim/neovim/releases/download/stable/nvim.appimage.sha256sum
-
-    # Avoid upgrading pyopenssl as root by doing all this with "get_url" mod
-    - name: Copying NVIM to /usr/bin/nvim with adequate permissions
-      copy:
-        src: "{{ ansible_env.HOME }}/Downloads/nvim"
-        dest: "/usr/bin"
-        owner: root
-        group: root
-        mode: 0755
+      async: true
+      poll: 0
       become: true
       become_method: sudo
-
-    - name: Removing NVIM from Downloads folder
-      file:
-        path: "{{ ansible_env.HOME }}/Downloads/nvim"
-        state: absent
 
 - name: Copying NeoVim configs
   copy:

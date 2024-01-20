@@ -25,7 +25,7 @@
       - { repo: 'ethereum/remix-desktop', expr: 'Remix-IDE-.*.AppImage', dir: '', mode: '0755' }
       - { repo: 'sonic-visualiser/sonic-visualiser', expr: 'SonicVisualiser-.*-x86_64.AppImage', dir: '', mode: '0755' }
     # Fire and forget
-    async: 0
+    async: true
     poll: 0
 
   - name: Cloning repositories
@@ -41,26 +41,28 @@
       - { owner: '0dayCTF', name: 'reverse-shell-generator' }
       - { owner: 'sshuttle', name: 'sshuttle' }
       - { owner: 'sherlock-project', name: 'sherlock' }
-    async: 0
+    async: true
     poll: 0
 
   # Radare2 is a special exception
-  - block:
-      - name: Cloning Radare2
-        git:
-          repo: "https://github.com/radareorg/radare2"
-          dest: "/opt/radare2"
-          depth: 1
-          single_branch: true
+  - name: Cloning Radare2
+    git:
+      repo: "https://github.com/radareorg/radare2"
+      dest: "/opt/radare2"
+      depth: 1
+      single_branch: true
 
-      - name: Installing Radare2
-        command: /opt/radare2/sys/install.sh
+  - name: Installing Radare2
+    command:
+      chdir: /opt/radare2
+      cmd: sys/install.sh
+    ignore_errors: true
     become: false
 
   - name: Building RevShell Generator docker image
     command:
       chdir: /opt/reverse-shell-generator
-      cmd: docker build -t reverse_shell_generator
+      cmd: docker build . -t reverse_shell_generator
 
   - name: Installing  SSHuttle
     command:
@@ -71,6 +73,7 @@
     command:
       chdir: /opt/sherlock
       cmd: pip3 install -r requirements.txt
-
+    ignore_errors: true
+  
   become: true
   become_method: sudo

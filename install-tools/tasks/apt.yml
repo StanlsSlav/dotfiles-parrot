@@ -22,7 +22,10 @@
         - wireshark
         - whatweb
         - npm
+        - p7zip
       state: "latest"
+    async: true
+    poll: 0
 
   - name: Remove dependencies that are no longer required
     apt:

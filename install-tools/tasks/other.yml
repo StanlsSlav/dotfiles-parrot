@@ -8,12 +8,16 @@
       get_url:
         url: "https://nodejs.org/dist/latest-iron/{{ node_file.stdout }}"
         dest: "/opt/{{ node_file.stdout }}"
+      async: true
+      poll: 0
 
     - name: Downloading Logic
       get_url:
         url: 'https://logic2api.saleae.com/download?os=linux&arch=x64'
         dest: '/opt'
         mode: 0755
+      async: true
+      poll: 0
 
     - name: Downloading IDA 8.3
       get_url:
@@ -23,28 +27,40 @@
 
     - name: Installing IDA 8.3
       command: '/opt/idafree83_linux.run --debuglevel 3 --prefix /opt/idafree-8.3 --mode unattended'
+      async: true
+      poll: 0
 
     - name: Downloading Stegsolve
       get_url:
         url: 'http://www.caesum.com/handbook/Stegsolve.jar'
         dest: '/opt/stegsolve.jar'
+      async: true
+      poll: 0
 
     - name: Downloading Burpsuite Community
       get_url:
         url: 'https://portswigger.net/burp/releases/startdownload?product=community&version=2023.11.1.3&type=Jar'
         dest: '/opt/burpsuite_community_v2023.11.1.3.jar'
+      async: true
+      poll: 0
 
     - name: Installing PwnTools
       shell: |
         apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
         python3 -m pip install --upgrade pip
         python3 -m pip install --upgrade pwntools
+      async: true
+      poll: 0
 
     - name: Installing Pwncat
       command: pip3 install pwncat-cs
+      async: true
+      poll: 0
 
     - name: Installing WPScan
       command: gem install wpscan
+      async: true
+      poll: 0
 
   become: true
   become_method: sudo
