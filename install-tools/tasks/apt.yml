@@ -22,7 +22,6 @@
         - nmap
         - wireshark
         - whatweb
-        - npm
         - p7zip
       state: "latest"
     async: true
