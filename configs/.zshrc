@@ -265,7 +265,7 @@ PATH="$PATH:/home/loki/.foundry/bin"
 PATH=$PATH:~/.local/bin
 
 # Add node to $PATH
-PATH=$PATH:/opt/node-v18.15.0-linux-x64/bin
+PATH=$PATH:/opt/node-v*-linux-x64/bin
 
 autoload -U compinit
 compinit -i
