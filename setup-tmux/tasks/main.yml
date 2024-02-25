@@ -3,6 +3,8 @@
   apt:
     name: tmux
     state: latest
+  become: true
+  become_method: sudo
 
 - name: Copying TMUX config
   copy:
@@ -12,8 +14,8 @@
 
 - name: Copying required files
   copy:
-      src: "{{ playbook_dir }}/configs/files/.checktun0"
-      dest: "{{ ansible_env.HOME }}"
+    src: "{{ playbook_dir }}/configs/files/.checktun0"
+    dest: "{{ ansible_env.HOME }}"
 
 - name: Cloning Tmux Plugin Manager
   git:
