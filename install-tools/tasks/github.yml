@@ -65,7 +65,7 @@
       chdir: /opt/reverse-shell-generator
       cmd: docker build . -t reverse_shell_generator
 
-  - name: Installing  SSHuttle
+  - name: Installing SSHuttle
     command:
       chdir: /opt/sshuttle
       cmd: ./setup.py install
