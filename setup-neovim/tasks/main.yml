@@ -23,7 +23,7 @@
     nvim_version.stdout not in gh_res.json[1].assets[8].browser_download_url
     or "not found" in nvim_version.stderr
   block:
-    - name: |
+    - name: >- 
         Downloading latest stable NeoVim into /usr/bin/nvim
         Install latest AppImage even if NeoVim exists
       get_url:
