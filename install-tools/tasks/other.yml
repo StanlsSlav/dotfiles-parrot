@@ -11,11 +11,15 @@
       async: true
       poll: 0
 
-    - name: Downloading Logic
+    - name: Downloading tools
       get_url:
-        url: 'https://logic2api.saleae.com/download?os=linux&arch=x64'
-        dest: '/opt'
+        url: "{{ item.url }}"
+        dest: "{{ item.out_dir | default('/opt') }}/{{ item.out_file | default('') }}"
         mode: 0755
+      loop:
+        - { url: "https://logic2api.saleae.com/download?os=linux&arch=x64" }
+        - { url: "http://www.caesum.com/handbook/Stegsolve.jar" }
+        - { url: "https://portswigger.net/burp/releases/startdownload?product=community&type=Jar", out_file: "burpsuite.jar", out_dir: "/usr/share/burpsuite" }
       async: true
       poll: 0
 
@@ -27,20 +31,6 @@
 
     - name: Installing IDA 8.3
       command: '/opt/idafree83_linux.run --debuglevel 3 --prefix /opt/idafree-8.3 --mode unattended'
-      async: true
-      poll: 0
-
-    - name: Downloading Stegsolve
-      get_url:
-        url: 'http://www.caesum.com/handbook/Stegsolve.jar'
-        dest: '/opt/stegsolve.jar'
-      async: true
-      poll: 0
-
-    - name: Downloading Burpsuite Community
-      get_url:
-        url: 'https://portswigger.net/burp/releases/startdownload?product=community&version=2023.11.1.3&type=Jar'
-        dest: '/opt/burpsuite_community_v2023.11.1.3.jar'
       async: true
       poll: 0
 
