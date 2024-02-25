@@ -23,14 +23,14 @@
       async: true
       poll: 0
 
-    - name: Downloading IDA 8.3
+    - name: Downloading IDA 8.4
       get_url:
-        url: 'https://out7.hex-rays.com/files/idafree83_linux.run'
-        dest: '/opt/idafree83_linux.run'
+        url: 'https://out7.hex-rays.com/files/idafree84_linux.run'
+        dest: '/opt'
         mode: 0755
 
-    - name: Installing IDA 8.3
-      command: '/opt/idafree83_linux.run --debuglevel 3 --prefix /opt/idafree-8.3 --mode unattended'
+    - name: Installing IDA
+      command: '/opt/idafree84_linux.run --debuglevel 3 --prefix /opt/idafree-8.4 --mode unattended'
       async: true
       poll: 0
 
