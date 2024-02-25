@@ -10,7 +10,7 @@
   command: "/tmp/rustup.sh -y"
 
 - name: Updating rust
-  command: "{{ansible_env.HOME}}/.cargo/bin/rustup update"
+  command: "{{ ansible_env.HOME }}/.cargo/bin/rustup update"
 
 - name: Info
   debug:
@@ -20,7 +20,7 @@
 
 - name: Installing Rust tools
   command: >-
-      cargo install --locked
+      {{ ansible_env.HOME }}/.cargo/bin/cargo install --locked
       bat
       exa
       zoxide
