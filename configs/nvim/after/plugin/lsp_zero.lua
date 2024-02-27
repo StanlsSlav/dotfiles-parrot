@@ -1,3 +1,6 @@
+require("neodev").setup {
+}
+
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
@@ -6,8 +9,8 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
+require('mason').setup {}
+require('mason-lspconfig').setup {
   -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
   -- This setting has no relation with the `automatic_installation` setting.
   ---@type string[]
@@ -28,4 +31,4 @@ require('mason-lspconfig').setup({
   handlers = {
     lsp_zero.default_setup,
   },
-})
+}
