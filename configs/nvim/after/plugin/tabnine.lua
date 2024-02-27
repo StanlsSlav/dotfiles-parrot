@@ -7,3 +7,5 @@ require('tabnine').setup {
     exclude_filetypes = { "TelescopePrompt", "NvimTree" },
     log_file_path = nil, -- absolute path to Tabnine log file
 }
+
+require('tabnine.status').status()
