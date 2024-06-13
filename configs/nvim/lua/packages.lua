@@ -11,14 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local function tabnine_build_path()
-  if vim.loop.os_uname().sysname == "Windows_NT" then
-    return "pwsh.exe -file .\\dl_binaries.ps1"
-  else
-    return "./dl_binaries.sh"
-  end
-end
-
 require('lazy').setup {
     -- Visuals
     { 'catppuccin/nvim', name = 'catppuccin' },
@@ -46,7 +38,7 @@ require('lazy').setup {
     { 'lewis6991/gitsigns.nvim' },
 
     -- :)
-    { 'codota/tabnine-nvim', build = tabnine_build_path() },
+    { 'supermaven-inc/supermaven-nvim' },
 
     -- LSP related
     {

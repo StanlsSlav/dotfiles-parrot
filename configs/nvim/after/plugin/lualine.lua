@@ -1,7 +1,7 @@
 require('lualine').setup {
     sections = {
         lualine_c = { 'filename', 'lsp_progress' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype', 'tabnine' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
     },
     inactive_sections = {
         lualine_a = {},

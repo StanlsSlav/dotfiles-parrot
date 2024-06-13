@@ -24,7 +24,6 @@ require('which-key').register {
         u = { '<cmd>UndotreeToggle<cr>', '[u]ndotree Toggle' },
         l = { '<cmd>Lazy<cr>', '[l]azy' },
         e = { '<cmd>Ex<cr>', '[e]xplorer' },
-        n = { '<cmd>TabnineToggle<cr>', '[n]ine toggle' },
 
         J = 'append to current line',
         y = 'yank to sys clip',
