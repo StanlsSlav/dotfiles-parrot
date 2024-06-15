@@ -1,5 +1,6 @@
-require("neodev").setup {
-}
+require("lazydev").setup({
+    library = { "nvim-dap-ui" }
+})
 
 local lsp_zero = require('lsp-zero')
 
