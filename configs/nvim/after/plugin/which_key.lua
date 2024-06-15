@@ -32,7 +32,8 @@ require('which-key').register {
         j = 'previous error',
         k = 'next error',
 
-        s = "find and replace carret"
+        s = "find and replace carret",
+        Z = '[Z]en mode',
     }
 }
 

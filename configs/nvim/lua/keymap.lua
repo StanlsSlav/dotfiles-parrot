@@ -25,5 +25,8 @@ vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
+-- Zen
+vim.keymap.set('n', '<C-w>z', '<cmd>ZenMode<CR>')
+
 -- The usual search and replace, but pre-builded and with a little bit of spice
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
