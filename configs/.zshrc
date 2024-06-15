@@ -202,7 +202,7 @@ alias htb='sudo openvpn /root/HackTheBox/lab.ovpn' \
       academy='sudo openvpn /root/HackTheBox/academy.ovpn'
 
 # Listing
-alias ls='exa --color=always' \
+alias ls='exa' \
       la='l -aG'
 
 # Exec
@@ -265,13 +265,21 @@ function check()
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Add foundry to $PATH
-PATH="$PATH:/home/loki/.foundry/bin"
+PATH=$PATH:~/.foundry/bin
 
 # Add pwntools to $PATH
 PATH=$PATH:~/.local/bin
 
 # Add node to $PATH
 PATH=$PATH:/opt/node-v*-linux-x64/bin
+
+# Add go bins to $PATH
+PATH=$PATH:~/go/bin
+
+# Add snap bins to $PATH
+PATH=$PATH:/snap/bin/
+
+source <(dalfox completion zsh 2>/dev/null)
 
 autoload -U compinit
 compinit -i
