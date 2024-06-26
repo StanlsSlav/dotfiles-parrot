@@ -63,6 +63,8 @@ require("lazy").setup({
         }
     },
 
+    { 'mrcjkb/rustaceanvim', version = '^4' },
+
     -- Listing of errors and more
     {
         "folke/trouble.nvim",

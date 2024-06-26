@@ -31,5 +31,6 @@ require('mason-lspconfig').setup {
   ---@type table<string, fun(server_name: string)>?
   handlers = {
     lsp_zero.default_setup,
+    ['rust_analyzer'] = function() end
   },
 }
