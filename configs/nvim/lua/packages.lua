@@ -32,7 +32,7 @@ require("lazy").setup({
     { "mbbill/undotree" },
 
     -- Highlight, edit, and navigate code
-    { "nvim-treesitter/nvim-treesitter" },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
     -- Git related
     { "tpope/vim-fugitive" },
