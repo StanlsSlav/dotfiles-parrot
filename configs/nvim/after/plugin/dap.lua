@@ -17,9 +17,6 @@ dap.adapters.codelldb = {
   executable = {
     command = codelldb_exe_path,
     args = {"--port", "${port}"},
-
-    -- On windows you may have to uncomment this:
-    detached = false,
   }
 }
 
