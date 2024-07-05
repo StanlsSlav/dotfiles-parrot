@@ -6,6 +6,9 @@ require("dapui").setup()
 require("nvim-dap-virtual-text").setup({
 })
 
+--[[
+-- Probably throws an error
+--]]
 local mason_registry = require("mason-registry")
 local codelldb = mason_registry.get_package("codelldb")
 local codelldb_install_path = codelldb:get_install_path()

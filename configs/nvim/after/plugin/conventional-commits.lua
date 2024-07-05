@@ -1,0 +1,2 @@
+require("conventional-commits").setup({
+})

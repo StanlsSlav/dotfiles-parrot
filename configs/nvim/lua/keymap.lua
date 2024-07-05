@@ -52,5 +52,14 @@ vim.keymap.set('n', '<Leader>ds', function()
   widgets.centered_float(widgets.scopes)
 end)
 
+-- Conventional commits
+vim.keymap.set('n', '<leader>q', '<cmd>ConventionalCommits<CR>')
+
+-- QoL
+vim.keymap.set('n', '<leader><leader>', function()
+    vim.cmd.w()
+    vim.cmd.source('%')
+end)
+
 -- The usual search and replace, but pre-builded and with a little bit of spice
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
