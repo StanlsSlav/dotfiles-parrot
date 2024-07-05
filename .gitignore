@@ -1,3 +1,0 @@
-.cache/**
-venv/**
-configs/nvim/lazy-lock.json
