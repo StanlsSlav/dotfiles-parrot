@@ -163,13 +163,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-ZSH_PLUGINS_HOME="$ZSH/plugins"
-ZNAP_SCRIPT="$ZSH_PLUGINS_HOME/znap/znap.zsh"
-[[ -r $ZNAP_SCRIPT ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/znap.git $ZSH_PLUGINS_HOME/znap
-source $ZNAP_SCRIPT
-
 # ==============
 # Aliases
 # ==============
