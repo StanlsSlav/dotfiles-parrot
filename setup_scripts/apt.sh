@@ -3,7 +3,10 @@
 /usr/bin/sudo /usr/bin/apt -y update
 /usr/bin/sudo /usr/bin/apt -y upgrade
 
-if [[ $(uname -a) != *WSL2* ]]; then
+if [[ $(uname -a) == *WSL2* ]]; then
+    /usr/bin/sudo /usr/bin/apt -y install \
+        python3.10-venv
+else
     /usr/bin/sudo /usr/bin/apt -y install \
         containerd.io \
         docker.io \
