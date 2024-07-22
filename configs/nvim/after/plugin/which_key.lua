@@ -1,41 +1,43 @@
-require('which-key').register {
-    ['<leader>'] = {
-        f = {
-            name = '+file',
-            f = { '<cmd>Telescope find_files<cr>', '[f]ind' },
-            r = { '<cmd>Telescope oldfiles<cr>', '[r]ecent' },
-            g = { '<cmd>Telescope live_grep<cr>', '[g]rep' },
-            b = { '<cmd>Telescope buffers<cr>', '[b]uffers' },
-            h = { '<cmd>Telescope help_tags<cr>', '[h]elp' },
-            n = { '<cmd>enew<cr>', '[n]ew' },
-        },
-        m = {
-            name = '+mason',
-            m = { '<cmd>Mason<cr>', '[m]ason' },
-            u = { '<cmd>MasonUpdate<cr>', '[u]pdate' },
-            l = { '<cmd>MasonLog<cr>', '[l]og' }
-        },
-        t = {
-            name = '+trouble',
-            t = { '<cmd>TroubleToggle<cr>', '[t]oggle' },
-            r = { '<cmd>TroubleRefresh<cr>', '[r]efresh' },
-        },
-        g = { '<cmd>Git<cr>', '[g]it' },
-        u = { '<cmd>UndotreeToggle<cr>', '[u]ndotree Toggle' },
-        l = { '<cmd>Lazy<cr>', '[l]azy' },
-        e = { '<cmd>Ex<cr>', '[e]xplorer' },
+local wk = require("which-key")
 
-        J = 'append to current line',
-        y = 'yank to sys clip',
-        Y = 'yank line to sys clip',
+wk.add({
+    {
+        group = "+file",
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "[f]ind" },
+        { "<leader>fr", "<cmd>Telescope oldfiles<cr>",   desc = "[r]ecent" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "[g]rep" },
+        { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "[b]uffers" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>",  desc = "[h]elp" },
+        { "<leader>fs", "<cmd>Telescope symbols<cr>",    desc = "[s]ymbols" },
+        { "<leader>fn", "<cmd>enew<cr>",                 desc = "[n]ew" },
+    },
+    {
+        group = "+mason",
+        { "<leader>mm", "<cmd>Mason<cr>",       desc = "[m]ason" },
+        { "<leader>mu", "<cmd>MasonUpdate<cr>", desc = "[u]pdate" },
+        { "<leader>ml", "<cmd>MasonLog<cr>",    desc = "[l]og" },
+    },
+    {
+        group = "+trouble",
+        --             t = { '<cmd>TroubleToggle<cr>', '[t]oggle' },
+        --             r = { '<cmd>TroubleRefresh<cr>', '[r]efresh' },
+    },
 
-        j = 'previous error',
-        k = 'next error',
+    { "<leader>g", "<cmd>Git<cr>",                  desc = "[g]it" },
+    { "<leader>u", "<cmd>UndotreeToggle<cr>",       desc = '[u]ndotree Toggle' },
+    { "<leader>l", "<cmd>Lazy<cr>",                 desc = "[l]azy" },
+    { "<leader>e", "<cmd>Ex<cr>",                   desc = "[e]xplorer" },
 
-        s = "find and replace carret",
-        Z = '[Z]en mode',
-    }
-}
+    { "<leader>J", desc = "append to current line" },
+    { "<leader>y", desc = "yank to sys clip" },
+    { "<leader>Y", desc = "yank line to sys clip" },
+
+    { "<leader>j", desc = "previous error" },
+    { "<leader>k", desc = "next error" },
+
+    { "<leader>s", desc = "find and replace carret" },
+    { "<leader>Z", desc = "[Z]en mode" },
+})
 
 -- Show whick-key modal after this much milliseconds
 vim.opt.timeoutlen = 350
