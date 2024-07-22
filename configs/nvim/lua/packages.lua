@@ -37,7 +37,6 @@ require("lazy").setup({
     -- Git related
     { "tpope/vim-fugitive" },
     { "lewis6991/gitsigns.nvim" },
-    { dir = "~/conventional-commits.nvim", lazy = true },
 
     -- :)
     { "supermaven-inc/supermaven-nvim" },
