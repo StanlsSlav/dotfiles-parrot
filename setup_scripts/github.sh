@@ -1,7 +1,12 @@
 #!/bin/bash
 
+echo "[?] Github install"
+
 # Attack machine exclusive so far
-[[ $(uname -a) == *"WSL"* ]] && exit 0
+if [[ $(uname -a) == *"WSL"* ]]; then
+    echo "[?] Skipping GitHub tools installation on WSL"
+    exit 0
+fi
 
 RUBY_SCRIPT=../install_git_tools.rb
 

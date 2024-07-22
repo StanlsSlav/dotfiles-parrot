@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "[?] Neovim install"
 /usr/bin/gh release download -R neovim/neovim -p nvim-linux64.tar.gz -D $HOME/Downloads
 /usr/bin/tar xzf $HOME/Downloads/nvim-linux64.tar.gz
 /usr/bin/sudo /usr/bin/mv $HOME/Downloads/nvim-linux64 /opt

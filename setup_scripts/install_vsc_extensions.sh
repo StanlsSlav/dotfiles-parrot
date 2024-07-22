@@ -1,3 +1,6 @@
+#!/bin/bash
+
+echo "[?] Codium extensions install"
 codium --install-extension "Catppuccin.catppuccin-vsc"
 codium --install-extension "Catppuccin.catppuccin-vsc-icons"
 codium --install-extension "christian-kohler.path-intellisense"
