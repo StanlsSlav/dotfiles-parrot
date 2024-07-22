@@ -1,4 +1,6 @@
-require('telescope').setup({
+local ts = require("telescope")
+
+ts.setup({
     extensions = {
         ["ui-select"] = {
             require("telescope.themes").get_dropdown()
@@ -6,4 +8,5 @@ require('telescope').setup({
     }
 })
 
-require('telescope').load_extension('ui-select')
+ts.load_extension('ui-select')
+ts.load_extension("conventional_commits")
