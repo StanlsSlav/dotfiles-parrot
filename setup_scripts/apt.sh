@@ -16,8 +16,7 @@ else
     echo "[?] Skipping APT update and upgrade"
 fi
 
-
-if [[ $(uname -a) != *WSL2* ]]; then
+if [[ $(uname -a) != *WSL* ]]; then
     /usr/bin/sudo /usr/bin/apt -y install \
         containerd.io \
         docker.io \
@@ -36,6 +35,7 @@ fi
     jq \
     clang \
     unzip \
-    python3.10-venv
+    python3-venv \
+    python3-libtmux
 
 /usr/bin/sudo /usr/bin/apt -y remove --purge
