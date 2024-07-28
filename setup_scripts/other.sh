@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "[?] Node install"
+/usr/bin/echo "[?] Node install"
 LASTEST_NODE_PACKAGE=$(/usr/bin/curl https://nodejs.org/dist/latest-iron/ -s | /usr/bin/grep '.*linux-x64.*gz' | /usr/bin/cut -d '"' -f2)
 /usr/bin/wget https://nodejs.org/dist/latest-iron/$LASTEST_NODE_PACKAGE -O $HOME/Downloads/$LASTEST_NODE_PACKAGE
 /usr/bin/sudo /usr/bin/tar -xzf $HOME/Downloads/$LASTEST_NODE_PACKAGE -C /opt
@@ -9,27 +9,27 @@ NODE_PACKAGE=$(echo $LASTEST_NODE_PACKAGE | sed 's/.tar.gz//')
 /usr/bin/sudo /usr/bin/mv /opt/$NODE_PACKAGE /opt/node
 /usr/bin/sudo /usr/bin/ln -s /opt/node/bin/node /usr/local/bin/node
 
-if [[ $(uname -a) == *"WSL"* ]]; then
+if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
     echo "[?] Skipping other attack tools install"
     exit 0
 fi
 
-echo "[?] Logic2 install"
+/usr/bin/echo "[?] Logic2 install"
 LOGIC2_URL="https://logic2api.saleae.com/download?os=linux&arch=x64"
 /usr/bin/sudo /usr/bin/wget $LOGIC2_URL -O /usr/local/bin/logic2
 /usr/bin/sudo /usr/bin/chmod 0755 /usr/local/bin/logic2
 
-echo "[?] Stegsolve install"
+/usr/bin/echo "[?] Stegsolve install"
 STEGSOLVE_URL="http://www.caesum.com/handbook/Stegsolve.jar"
 /usr/bin/sudo /usr/bin/wget $STEGSOLVE_URL -O /opt/Stegsolve.jar
 /usr/bin/sudo /usr/bin/chmod 0755 /opt/stegsolve.jar
 
-echo "[?] Burpsuite install"
+/usr/bin/echo "[?] Burpsuite install"
 BURPSUITE_URL="https://portswigger.net/burp/releases/startdownload?product=community&type=Jar"
 /usr/bin/sudo /usr/bin/wget $BURPSUITE_URL -O /usr/share/burpsuite/burpsuite.jar
 /usr/bin/sudo /usr/bin/chmod 0755 /usr/share/burpsuite/burpsuite.jar
 
-echo "[?] IDA install"
+/usr/bin/echo "[?] IDA install"
 IDA_URL='https://out7.hex-rays.com/files/idafree84_linux.run'
 /usr/bin/sudo /usr/bin/wget $IDA_URL -O /opt/idafree84_linux.run
 /usr/bin/sudo /usr/bin/chmod 0755 /opt/idafree84_linux.run
