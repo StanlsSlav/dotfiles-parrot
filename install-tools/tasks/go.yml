@@ -1,9 +1,0 @@
-- block:
-  - name: Installing GO tools
-    command: >-
-      go install github.com/ffuf/ffuf/v2@latest
-    async: true
-    poll: 0
-
-  become: true
-  become_method: sudo
