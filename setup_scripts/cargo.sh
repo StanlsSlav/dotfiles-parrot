@@ -1,10 +1,16 @@
 #!/bin/bash
 
-echo "[?] Cargo install"
-[[ -d $HOME/.cargo ]] \
-    || /usr/bin/curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+/usr/bin/echo "[?] Cargo setup"
+if [[ -d $HOME/.cargo ]]; then
+    /usr/bin/echo "[?] Cargo already installed, skipping..."
+else
+    /usr/bin/echo "[+] Installing Cargo"
+    /usr/bin/curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
 
 CARGO_BIN_PATH=$HOME/.cargo/bin
+
+/usr/bin/echo "[+] Updating rustup"
 $CARGO_BIN_PATH/rustup update
 
 $CARGO_BIN_PATH/cargo install --locked \
@@ -15,6 +21,6 @@ $CARGO_BIN_PATH/cargo install --locked \
     ripgrep \
     tealdeer
 
-if [[ $(uname -a) != *"WSL"* ]]; then
+if [[ $(/usr/bin/uname -a) != *WSL* ]]; then
     $RUSTUP_BIN install feroxbuster --locked
 fi
