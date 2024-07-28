@@ -3,7 +3,6 @@
 /usr/bin/echo "[?] ZSH setup"
 /usr/bin/sudo /usr/bin/apt install zsh
 
-CONFIGS_DIR=../configs
 OMZ_HOME=$HOME/.oh-my-zsh
 
 [[ -d $OMZ_HOME ]] \
@@ -12,5 +11,5 @@ OMZ_HOME=$HOME/.oh-my-zsh
 /usr/bin/git clone git:romkatv/powerlevel10k $OMZ_HOME/custom/themes/powerlevel10k
 /usr/bin/git clone git:zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 
-/usr/bin/cp -b $CONFIGS_DIR/.zshrc $HOME &
-/usr/bin/cp -b $CONFIGS_DIR/.p10k.zsh $HOME &
+/usr/bin/cp -b ./configs/.zshrc $HOME &
+/usr/bin/cp -b ./configs/.p10k.zsh $HOME &
