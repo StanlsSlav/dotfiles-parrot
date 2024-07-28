@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "[?] Go install"
-if [[ $(uname -a) == *"WSL"* ]]; then
-    echo "[?] Skipping go installation on WSL"
+/usr/bin/echo "[?] Go install"
+if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
+    /usr/bin/echo "[?] Skipping go installation on WSL"
     exit 0
 fi
 
