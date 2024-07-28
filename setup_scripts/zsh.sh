@@ -1,5 +1,6 @@
 #!/bin/bash
 
+/usr/bin/echo "[?] ZSH setup"
 /usr/bin/sudo /usr/bin/apt install zsh
 
 CONFIGS_DIR=../configs
