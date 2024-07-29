@@ -95,7 +95,7 @@ zstyle ':omz:update' frequency 2
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   # Programs
-  git docker python pip zoxide tmux rust ripgrep fd
+  git docker python pip zoxide tmux rust
 
   # Decoding/Encoding
   urltools
