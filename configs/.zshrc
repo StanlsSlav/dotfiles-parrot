@@ -105,8 +105,11 @@ plugins=(
 
   # Utils
   colored-man-pages command-not-found man
+
+  zsh-autosuggestions
 )
 
+fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
 source $ZSH/oh-my-zsh.sh
 
 # AutoSuggestions config
