@@ -17,7 +17,6 @@ fi
 
 if [[ $(/usr/bin/uname -a) != *WSL* ]]; then
     /usr/bin/sudo /usr/bin/apt -y install \
-        containerd.io \
         docker.io \
         exiftool \
         git \
@@ -27,7 +26,8 @@ if [[ $(/usr/bin/uname -a) != *WSL* ]]; then
         nmap \
         wireshark \
         whatweb \
-        p7zip
+        p7zip \
+        python3-pwntools
 fi
 
 /usr/bin/sudo /usr/bin/apt -y install \
