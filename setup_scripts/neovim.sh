@@ -21,14 +21,14 @@ read -p "[?] Copy the files instead of symlink?: [y]es " input
 [[ -d $HOME/.config ]] \
     || /usr/bin/mkdir $HOME/.config
 
-NVIM_CONF_DIR=./configs/nvim
+NVIM_CONF_DIR=$PWD/configs/nvim
 case $input in
     'y')
-        /usr/bin/cp -br $NVIM_CONF_DIR $HOME/.config/ 2>/dev/null
+        /usr/bin/cp -br $NVIM_CONF_DIR $HOME/.config/
     ;;
     
     *)
-	    /usr/bin/ln -s $NVIM_CONF_DIR $HOME/.config/ 2>/dev/null
+	    /usr/bin/ln -s $NVIM_CONF_DIR $HOME/.config/
     ;;
 esac
 
