@@ -3,7 +3,7 @@
 echo "[?] Github install"
 
 # Attack machine exclusive so far
-if [[ $(uname -a) == *"WSL"* ]]; then
+if [[ $(uname -a) == *WSL* ]]; then
     echo "[?] Skipping GitHub tools installation on WSL"
     exit 0
 fi
@@ -27,14 +27,27 @@ RUBY_SCRIPT=../install_git_tools.rb
 /usr/bin/sudo $RUBY_SCRIPT -r 'ethereum/remix-desktop' -e '^Remix-IDE-.*.AppImage$' -d '' -m '0755'
 /usr/bin/sudo $RUBY_SCRIPT -r 'sonic-visualiser/sonic-visualiser' -e '^SonicVisualiser-.*-x86_64.AppImage$' -d '' -m '0755'
 
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:sullo/nikto /opt/nikto
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:RsaCtfTool/RsaCtfTool /opt/RsaCtfTool
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:sqlmapproject/sqlmap /opt/sqlmap
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:0dayCTF/reverse-shell-generator --branch main /opt/reverse-shell-generator
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:sshuttle/sshuttle /opt/sshuttle
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:sherlock-project/sherlock /opt/sherlock
+REPOS=(
+    "sullo/nikto;/opt/nikto;"
+    "RsaCtfTool/RsaCtfTool;/opt/RsaCtfTool;"
+    "sqlmapproject/sqlmap;/opt/sqlmap;"
+    "0dayCTF/reverse-shell-generator;/opt/reverse-shell-generator;--branch main"
+    "sshuttle/sshuttle;/opt/sshuttle;"
+    "sherlock-project/sherlock;/opt/sherlock;"
+    "radareorg/radare2;/opt/radare2;"
+)
 
-/usr/bin/sudo /usr/bin/git clone --depth 1 --single-branch git:radareorg/radare2 /opt/radare2
+for (( i = 0; i < ${#REPOS[@]}; i++)); do
+    repo=${REPOS[$i]}
+    IFS=";" read -r -a arr <<< "${repo}"
+
+    repo="${arr[0]}"
+    location="${arr[1]}"
+    args="${arr[2]}"
+
+    /usr/bin/sudo /usr/bin/git clone --depth=1 "https://github.com/$repo" "$location" "$args"
+done
+
 /usr/bin/cd /opt/radare2
 /opt/radare2/sys/install.sh
 /usr/bin/cd -
@@ -53,3 +66,4 @@ RUBY_SCRIPT=../install_git_tools.rb
 
 /usr/bin/cd /opt
 /usr/bin/sudo /usr/bin/dpkg -i pwdbg* && rm pwndbg*
+/usr/bin/cd -
