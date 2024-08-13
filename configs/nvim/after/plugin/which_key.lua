@@ -19,8 +19,8 @@ wk.add({
     },
     {
         group = "+trouble",
-        --             t = { '<cmd>TroubleToggle<cr>', '[t]oggle' },
-        --             r = { '<cmd>TroubleRefresh<cr>', '[r]efresh' },
+        { "<leadesc = der>td", "<cmd>Trouble diagnostics<cr>", desc = "[d]iagnostics" },
+        { "<leadesc = der>tl", "<cmd>Trouble lsp<cr>", desc = "[l]sp" },
     },
 
     { "<leader>g", "<cmd>Git<cr>",                  desc = "[g]it" },
