@@ -27,6 +27,13 @@ wk.add({
         { l .. "tl", "<cmd>Trouble lsp<cr>",         desc = "[l]sp" },
     },
 
+    {
+        group = "rustaceans",
+        { l .. "rR", "<cmd>RustAnalyzer restart<cr>", desc = "[R]estart" },
+        { l .. "rc", "<cmd>RustLsp openCargo<cr>",    desc = "open [c]argo" },
+        { l .. "rd", "<cmd>RustLsp debuggables<cr>",  desc = "[d]ebuggables" }
+    },
+
     { l .. "g", "<cmd>Git<cr>",                  desc = "[g]it" },
     { l .. "u", "<cmd>UndotreeToggle<cr>",       desc = '[u]ndotree Toggle' },
     { l .. "l", "<cmd>Lazy<cr>",                 desc = "[l]azy" },
