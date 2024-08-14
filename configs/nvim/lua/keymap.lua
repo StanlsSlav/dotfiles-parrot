@@ -52,9 +52,6 @@ vim.keymap.set('n', '<Leader>ds', function()
   widgets.centered_float(widgets.scopes)
 end)
 
--- Conventional commits
-vim.keymap.set('n', '<leader>q', '<cmd>ConventionalCommits<CR>')
-
 -- QoL
 vim.keymap.set('n', '<leader><leader>', function()
     vim.cmd.w()
