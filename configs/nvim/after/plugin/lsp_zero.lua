@@ -4,7 +4,7 @@ require("lazydev").setup({
 
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(_, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp_zero.default_keymaps({buffer = bufnr})
@@ -15,7 +15,12 @@ require('mason-lspconfig').setup {
   -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
   -- This setting has no relation with the `automatic_installation` setting.
   ---@type string[]
-  ensure_installed = { },
+  ensure_installed = {
+    "rust_analyzer", "taplo",
+    "bashls",
+    "lua_ls",
+    "pylsp", "ruff"
+  },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
