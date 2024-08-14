@@ -4,14 +4,16 @@ local l = "<leader>"
 wk.add({
     {
         group = "file",
-        { l .. "ff", "<cmd>Telescope find_files<cr>", desc = "[f]ind" },
-        { l .. "fo", "<cmd>Telescope oldfiles<cr>",   desc = "[o]ld" },
-        { l .. "fr", "<cmd>Telescope registers<cr>",  desc = "[r]egisters" },
-        { l .. "fg", "<cmd>Telescope live_grep<cr>",  desc = "[g]rep" },
-        { l .. "fb", "<cmd>Telescope buffers<cr>",    desc = "[b]uffers" },
-        { l .. "fh", "<cmd>Telescope help_tags<cr>",  desc = "[h]elp" },
-        { l .. "fs", "<cmd>Telescope symbols<cr>",    desc = "[s]ymbols" },
-        { l .. "fn", "<cmd>enew<cr>",                 desc = "[n]ew" },
+        { l .. "ff", "<cmd>Telescope find_files<cr>",           desc = "[f]ind" },
+        { l .. "fo", "<cmd>Telescope oldfiles<cr>",             desc = "[o]ld" },
+        { l .. "fr", "<cmd>Telescope registers<cr>",            desc = "[r]egisters" },
+        { l .. "fg", "<cmd>Telescope live_grep<cr>",            desc = "[g]rep" },
+        { l .. "fb", "<cmd>Telescope buffers<cr>",              desc = "[b]uffers" },
+        { l .. "fh", "<cmd>Telescope help_tags<cr>",            desc = "[h]elp" },
+        { l .. "fs", "<cmd>Telescope symbols<cr>",              desc = "[s]ymbols" },
+        { l .. "fk", "<cmd>Telescope keymaps<cr>",              desc = "[k]eymaps" },
+        { l .. "fc", "<cmd>Telescope conventional_commits<cr>", desc = "[c]onventional commits" },
+        { l .. "fn", "<cmd>enew<cr>",                           desc = "[n]ew" },
     },
 
     {
