@@ -28,7 +28,7 @@ read -p "[?] Copy the files instead of symlink?: [y]es " input
 NVIM_CONF_DIR=$PWD/configs/nvim
 case $input in
     'y')
-        /usr/bin/cp -br $NVIM_CONF_DIR $HOME/.config/
+        /usr/bin/cp -ur $NVIM_CONF_DIR $HOME/.config/
     ;;
 
     *)

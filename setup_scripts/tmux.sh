@@ -4,8 +4,8 @@
 
 /usr/bin/sudo /usr/bin/apt install -y tmux
 
-/usr/bin/cp -b ./configs/.tmux.conf $HOME
-/usr/bin/cp ./configs/files/.checktun0 $HOME
+/usr/bin/cp -u ./configs/.tmux.conf $HOME
+/usr/bin/cp -u ./configs/files/.checktun0 $HOME
 
 tpm_dir=($HOME/.tmux/plugins/tpm)
 if [[ -d $tpm_dir ]]; then

@@ -24,5 +24,5 @@ for (( i = 0; i < ${#PLUGINS[@]}; i++)); do
     /usr/bin/git clone --depth=1 "https://github.com/$repo" "$location"
 done
 
-/usr/bin/cp -b ./configs/.zshrc $HOME &
-/usr/bin/cp -b ./configs/.p10k.zsh $HOME &
+/usr/bin/cp -u ./configs/.zshrc $HOME &
+/usr/bin/cp -u ./configs/.p10k.zsh $HOME &
