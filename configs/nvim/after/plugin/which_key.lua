@@ -33,7 +33,8 @@ wk.add({
         group = "rustaceans",
         { l .. "rR", "<cmd>RustAnalyzer restart<cr>", desc = "[R]estart" },
         { l .. "rc", "<cmd>RustLsp openCargo<cr>",    desc = "open [c]argo" },
-        { l .. "rd", "<cmd>RustLsp debuggables<cr>",  desc = "[d]ebuggables" }
+        { l .. "rd", "<cmd>RustLsp debuggables<cr>",  desc = "[d]ebuggables" },
+        { l .. "rr", "<cmd>RustLsp runnables<cr>",  desc = "[r]unnables" },
     },
 
     { l .. "g", "<cmd>Git<cr>",                  desc = "[g]it" },
