@@ -24,7 +24,7 @@ fi
     libfuse2 \
     p7zip \
     git \
-    libasound2
+    libsdl2-dev
 
 if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
     /usr/bin/echo "[?] Skipping attack tools install"
