@@ -20,6 +20,12 @@ else
    /usr/bin/echo "[?] Skipping Node install"
 fi
 
+mgba_image="mGBA*appimage"
+/usr/bin/gh release download -R mgba-emu/emgba -p "$mgba_image" -D /tmp
+/usr/bin/sudo /usr/bin/chown root:root "/tmp/$mgba_image"
+/usr/bin/sudo /usr/bin/chmod 755 "/tmp/$mgba_image"
+/usr/bin/sudo /usr/bin/mv /tmp/$mgba_image /opt
+
 if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
     /usr/bin/echo "[?] Skipping attack tools install"
     exit 0
