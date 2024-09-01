@@ -15,26 +15,30 @@ else
     /usr/bin/echo "[?] Skipping APT update and upgrade"
 fi
 
-if [[ $(/usr/bin/uname -a) != *WSL* ]]; then
-    /usr/bin/sudo /usr/bin/apt -y install \
-        docker.io \
-        exiftool \
-        git \
-        openvpn \
-        binwalk \
-        fcrackzip \
-        nmap \
-        wireshark \
-        whatweb \
-        p7zip \
-        python3-pwntools
-fi
-
 /usr/bin/sudo /usr/bin/apt -y install \
     jq \
     clang \
     unzip \
     python3-venv \
-    python3-libtmux
+    python3-libtmux \
+    libfuse2 \
+    p7zip \
+    git
+
+if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
+    /usr/bin/echo "[?] Skipping attack tools install"
+    exit 0
+fi
+
+/usr/bin/sudo /usr/bin/apt -y install \
+    docker.io \
+    exiftool \
+    openvpn \
+    binwalk \
+    fcrackzip \
+    nmap \
+    wireshark \
+    whatweb \
+    python3-pwntools
 
 /usr/bin/sudo /usr/bin/apt -y remove --purge
