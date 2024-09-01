@@ -24,7 +24,8 @@ fi
     libfuse2 \
     p7zip \
     git \
-    libsdl2-dev
+    libsdl2-dev \
+    plocate
 
 if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
     /usr/bin/echo "[?] Skipping attack tools install"
