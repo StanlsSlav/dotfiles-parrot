@@ -23,7 +23,8 @@ fi
     python3-libtmux \
     libfuse2 \
     p7zip \
-    git
+    git \
+    libasound2
 
 if [[ $(/usr/bin/uname -a) == *WSL* ]]; then
     /usr/bin/echo "[?] Skipping attack tools install"
