@@ -9,6 +9,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
+-- Sometimes it gets set to DOS within WSL
+-- Hopefully it never gets automatically set
+vim.opt.ff = 'unix'
+
 vim.opt.smartcase = true
 
 vim.opt.wrap = false
