@@ -12,6 +12,7 @@ PLUGINS=(
     "romkatv/powerlevel10k;${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
     "zsh-users/zsh-completions;${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions"
     "zsh-users/zsh-autosuggestions;${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-autosuggestions"
+    "jeffreytse/zsh-vi-mode;${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-vi-mode"
 )
 
 for (( i = 0; i < ${#PLUGINS[@]}; i++)); do

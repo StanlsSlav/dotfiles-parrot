@@ -106,7 +106,7 @@ plugins=(
   # Utils
   colored-man-pages command-not-found man
 
-  zsh-autosuggestions
+  zsh-autosuggestions zsh-vi-mode
 )
 
 fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
