@@ -13,6 +13,9 @@ CARGO_BIN_PATH=$HOME/.cargo/bin
 /usr/bin/echo "[+] Updating rustup"
 $CARGO_BIN_PATH/rustup update
 
+/usr/bin/echo "[+] Adding rust-analyzer component"
+$CARGO_BIN_PATH/rustup component add rust-analyzer
+
 $CARGO_BIN_PATH/cargo install --locked \
     bat \
     exa \
