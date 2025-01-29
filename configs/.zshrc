@@ -203,7 +203,6 @@ alias ls='exa' \
 
 # Exec
 alias ghidra='/opt/ghidra*/ghidraRun' \
-      ida='/opt/idafree*/ida64' \
       stegsolve='/opt/stegsolve.jar' \
       cyberchef='firefox /opt/CyberChef/CyberChef*.html' \
       rustscan='docker run -it --rm rustscan/rustscan' \
@@ -257,8 +256,10 @@ function check()
   fi
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export JAVA_OPTIONS="-Dsun.java2d.xrender=false"
+
+# Add cargo to $PATH
+PATH=$PATH:~/.cargo/bin
 
 # Add foundry to $PATH
 PATH=$PATH:~/.foundry/bin
@@ -274,6 +275,9 @@ PATH=$PATH:~/go/bin
 
 # Add snap bins to $PATH
 PATH=$PATH:/snap/bin/
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source <(dalfox completion zsh 2>/dev/null)
 
