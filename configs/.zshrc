@@ -283,3 +283,5 @@ source <(dalfox completion zsh 2>/dev/null)
 
 autoload -U compinit
 compinit -i
+
+[[ -z $WAYLAND_DISPLAY ]] && startplasma-wayland
