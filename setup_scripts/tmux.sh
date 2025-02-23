@@ -5,7 +5,6 @@
 /usr/bin/sudo /usr/bin/apt install -y tmux
 
 /usr/bin/cp -u ./configs/.tmux.conf $HOME
-/usr/bin/cp -u ./configs/files/.checktun0 $HOME
 
 tpm_dir=($HOME/.tmux/plugins/tpm)
 if [[ -d $tpm_dir ]]; then

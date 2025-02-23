@@ -1,6 +1,0 @@
-#!/bin/bash
-
-(/usr/bin/ip -br -4 -j a s tun0 \
-|| /usr/bin/ip -br -4 -j a s ens33) 2>/dev/null \
-    | /usr/bin/jq -M ".[]|.addr_info|.[]|.local" \
-    | /usr/bin/sed 's/"//g'
