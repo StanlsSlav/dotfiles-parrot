@@ -16,10 +16,7 @@ require('mason-lspconfig').setup {
   -- This setting has no relation with the `automatic_installation` setting.
   ---@type string[]
   ensure_installed = {
-    "rust_analyzer", "taplo",
     "bashls",
-    "lua_ls",
-    "pylsp", "ruff"
   },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
